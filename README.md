@@ -1,1 +1,1 @@
-# capstone-project-pgdaiml
+# Post Graduate Diploma in AIML Capstone Project 
