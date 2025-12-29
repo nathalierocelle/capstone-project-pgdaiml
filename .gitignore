@@ -1,2 +1,3 @@
 /venv
+.envsrc/.env
 .env
