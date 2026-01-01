@@ -22,7 +22,7 @@ class ModelLoader:
         self.models_dir = models_dir
         self.config = None
         
-    @st.cache(allow_output_mutation=True)
+    @st.cache(allow_output_mutation=True, suppress_st_warning=True)
     def load_models(_self) -> Dict[str, Any]:
         """
         Load all required models and artifacts.

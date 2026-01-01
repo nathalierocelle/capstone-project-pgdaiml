@@ -12,18 +12,17 @@ import plotly.graph_objects as go
 from pathlib import Path
 import sys
 import re
-
-# Add utils to path
-sys.path.append(str(Path(__file__).parent))
-
+import warnings
 from utils.data_processor import ThyroidDataProcessor
 from utils.model_loader import ModelLoader
 from utils.predictor import ThyroidPredictor
 from utils.ai_insights import AIInsightsGenerator
-
 from dotenv import load_dotenv
 
+sys.path.append(str(Path(__file__).parent))
+
 load_dotenv()
+warnings.filterwarnings("ignore")
 
 # Diagnosis mapping dictionary
 DIAGNOSIS_MAPPING = {
@@ -669,99 +668,6 @@ def display_prediction_results(prediction, patient_data, processor, ai_generator
             for col in df_display.columns:
                 df_display[col] = df_display[col].astype(str)
             st.dataframe(df_display)
-    
-    # Probability distributions
-    st.markdown("### 📈 Probability Distributions")
-
-    # Stage 1
-    if prediction.get('stage1_probability'):
-        prob_df = pd.DataFrame([
-            {'Status': k.replace('_', ' ').title(), 'Probability': float(v)} 
-            for k, v in prediction['stage1_probability'].items()
-        ])
-        
-        prob_df = prob_df.sort_values('Probability', ascending=True)
-
-        fig = px.bar(
-            prob_df,
-            x='Probability', 
-            y='Status',
-            orientation='h',
-            title='Stage 1: Initial Screening',
-            color='Probability',
-            text=prob_df['Probability'].apply(lambda x: f'{x:.1%}'),
-        )
-
-        fig.update_layout(
-            showlegend=False, 
-            height=400,
-            xaxis_title="Probability",
-            yaxis_title="",
-            xaxis=dict(
-                type='linear', 
-                range=[0, 1],
-                tickformat='.0%'
-            ),
-            plot_bgcolor='rgba(0,0,0,0)',
-            paper_bgcolor='rgba(0,0,0,0)'
-        )
-        
-        fig.update_traces(textposition='outside')
-        st.plotly_chart(fig, use_container_width=True)
-
-    # Stage 2
-    if prediction.get('stage2_probability'):
-        raw_data = prediction['stage2_probability']
-        
-        sorted_items = sorted(raw_data.items(), key=lambda x: float(x[1]), reverse=True)[:5]
-        prob_df = pd.DataFrame(sorted_items, columns=['Condition', 'Probability'])
-        prob_df['Probability'] = prob_df['Probability'].astype(float)
-
-        if prob_df['Probability'].max() > 1.0:
-            prob_df['Probability'] = prob_df['Probability'] / 100.0
-        
-        prob_df = prob_df.sort_values('Probability', ascending=True)
-                
-        fig = px.bar(
-            prob_df,
-            x='Probability', 
-            y='Condition',
-            orientation='h',
-            title='Stage 2: Top 5 Probable Conditions',
-            color='Probability',
-            color_continuous_scale='Blues',
-            text=prob_df['Probability'].apply(lambda x: f'{x:.1%}')
-        )
-        
-        fig.update_layout(
-            showlegend=False, 
-            height=500,
-            xaxis_title="Probability Score",
-            yaxis_title="",
-            xaxis=dict(
-                type='linear',
-                range=[0, 1],  
-                tickformat='.0%',
-                dtick=0.2,
-                autorange=False 
-            ),
-            yaxis=dict(
-                type='category',
-                autorange="reversed"
-            ),
-            plot_bgcolor='rgba(0,0,0,0)',
-            paper_bgcolor='rgba(0,0,0,0)',
-            coloraxis_showscale=False
-        )
-        
-        fig.update_traces(
-            textposition='outside',
-            cliponaxis=False
-        )
-        
-        st.plotly_chart(fig, use_container_width=True)
-    else:
-        st.info("Stage 2 classification not performed (no condition detected)")
     
     # Feature importance
     if prediction.get('feature_importance'):

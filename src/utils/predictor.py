@@ -208,16 +208,12 @@ class ThyroidPredictor:
             Risk level string
         """
         if stage2_conf is not None:
-            avg_conf = (stage1_conf + stage2_conf) / 2
-        else:
-            avg_conf = stage1_conf
-        
-        if avg_conf >= 0.9:
-            return 'High' if stage1_conf > 0.9 else 'Low'
-        elif avg_conf >= 0.7:
-            return 'Medium'
-        else:
-            return 'Low'
+            if stage1_conf >= 0.9:
+                return 'High Confidence - Strong Recommendation: Seek Medical Attention'
+            elif stage1_conf >= 0.7:
+                return 'Medium Confidence - Recommendation: Consult Healthcare Provider'
+            else:
+                return 'Low Confidence - Suggestion: Monitor Symptoms and Follow-up if Needed'
     
     def _calculate_feature_importance(self, row: pd.Series) -> Dict[str, float]:
         """
