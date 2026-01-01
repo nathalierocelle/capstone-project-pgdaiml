@@ -1,4 +1,4 @@
-# Thyroid Disease Likelihood Project
+# AI-Powered Thyroid Disease Detection System
 ## Generative AI Integration Documentation
 
 ## Overview
