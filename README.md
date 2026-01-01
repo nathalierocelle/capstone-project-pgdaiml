@@ -170,7 +170,7 @@ jupyter notebook notebook/
 - Metrics: Accuracy, Precision, Recall, F1-Score, ROC-AUC
 - Confusion matrices for error analysis
 
-## 🔍 Explainability & Interpretability
+## Explainability & Interpretability
 
 ### SHAP (SHapley Additive exPlanations)
 - Global feature importance
@@ -191,7 +191,7 @@ jupyter notebook notebook/
 ### Permutation Importance
 - Feature importance based on model performance degradation
 
-## ⚖️ Ethical AI & Bias Auditing
+## Ethical AI & Bias Auditing
 
 Comprehensive fairness analysis including:
 

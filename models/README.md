@@ -50,7 +50,7 @@ This directory contains trained machine learning models, preprocessing artifacts
      - Class distributions
      - Execution metadata
 
-## 📊 Model Architecture
+## Model Architecture
 
 ### Binary Classification Pipeline
 ```
@@ -78,11 +78,11 @@ LabelEncoder.inverse_transform (label_encoder_multiclass.pkl)
 Diagnosis Code (A, B, C, ..., GKJ)
 ```
 
-## 🎯 Model Selection Process
+## Model Selection Process
 
 ### Binary Classification
 Models evaluated (9 algorithms):
-- ✅ **Gradient Boosting** (Selected - Best F1: 89.3%)
+- **Gradient Boosting** (Selected - Best F1: 89.3%)
 - Random Forest (F1: 88.1%)
 - XGBoost (F1: 87.5%)
 - SVM RBF (F1: 86.2%)
@@ -103,7 +103,7 @@ Models evaluated (8 algorithms):
 - K-Nearest Neighbors (Weighted F1: 78.9%)
 - Naive Bayes (Weighted F1: 75.3%)
 
-## 🔧 Training Configuration
+## Training Configuration
 
 From `config.json`:
 
@@ -210,58 +210,9 @@ Top 10 most important features (from SHAP analysis):
 9. any_treatment
 10. medical_complexity_score
 
-## Usage Notes
-
-### Important Considerations
-
-1. **Feature Scaling Required**: Always use the corresponding scaler before prediction
-2. **Feature Order**: Maintain exact feature order as in `config.json`
-3. **Missing Values**: Handle missing values before scaling (median imputation recommended)
-4. **Version Compatibility**: 
-   - Python: 3.9.7+
-   - scikit-learn: 1.3.0+
-   - XGBoost: 2.0.0+
-   - joblib: 1.3.0+
-
-### Model Limitations
-
-- Trained on specific dataset distribution (may not generalize to all populations)
-- Performance may vary with significantly different patient demographics
-- Should be used as decision support, not replacement for medical diagnosis
-- Regular retraining recommended with new data
-
-## Retraining
-
-To retrain models with new data:
-
-```python
-# See notebook/4_Model_Implementation.ipynb for complete pipeline
-```
-
-Steps:
-1. Prepare new data with same feature schema
-2. Run preprocessing pipeline
-3. Train new models with same hyperparameters
-4. Evaluate on holdout test set
-5. Compare with current model performance
-6. Update model files if performance improves
-
 ## Related Files
 
 - **Training Notebook**: `notebook/4_Model_Implementation.ipynb`
-- **Evaluation Results**: `results/binary_classification_report.txt`
+- **Evaluation Results**: `results/`
 - **Explainability Analysis**: `notebook/5_Ethical_AI_Bias_Auditing.ipynb`
 - **Web Application**: `src/app.py` (uses these models)
-
-## Support
-
-For issues with model loading or predictions, please refer to:
-- Model implementation notebook
-- Source code in `src/utils/model_loader.py`
-- Open an issue on GitHub
-
----
-
-**Note**: Models are serialized using joblib for efficient storage and loading. Ensure compatible versions of all dependencies when loading models in production environments.
-
-**Disclaimer**: These models are for educational and research purposes. Not intended for clinical use without proper validation and regulatory approval.

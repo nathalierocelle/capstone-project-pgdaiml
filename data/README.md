@@ -102,11 +102,3 @@ df_pca = pd.read_csv('data/df_pca_transformed.csv')
 
 - **Preprocessing Notebook**: `notebook/3_Data_Preprocessing,_EDA_&_Feature_Engineering.ipynb`
 - **Data Understanding**: `notebook/2_Data_Collection_&_Understanding.ipynb`
-
-## Questions?
-
-For questions about data processing or feature engineering, refer to the notebooks or open an issue.
-
----
-
-**Note**: Due to file size constraints and repository best practices, raw unprocessed data is not included. All preprocessing steps are documented in the notebooks for full reproducibility.
