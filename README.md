@@ -1,8 +1,8 @@
-# 🏥 Thyroid Disease Likelihood 
+# Thyroid Disease Likelihood 
 
 A hierarchical machine learning system for thyroid disease detection and multi-class classification, developed as part of the Post Graduate Diploma in AI and Machine Learning at Asian Institute of Management.
 
-## 📋 Project Overview
+## Project Overview
 
 This project implements a comprehensive thyroid disease classification system using hierarchical machine learning models. The system first performs binary classification to detect thyroid abnormalities, then uses multi-class classification to identify specific thyroid conditions across 31 different diagnosis categories.
 
@@ -13,7 +13,7 @@ This project implements a comprehensive thyroid disease classification system us
 - **Ethical AI**: Comprehensive bias auditing and fairness analysis
 - **Interactive Web App**: Streamlit-based interface with AI-powered insights using OpenAI GPT
 
-## 🎯 Model Performance
+## Model Performance
 
 ### Binary Classification (Healthy vs Sick)
 - **Best Model**: Gradient Boosting
@@ -27,7 +27,7 @@ This project implements a comprehensive thyroid disease classification system us
 - **Weighted F1-Score**: 91%
 - **Handles**: 31 different thyroid condition categories
 
-## 📊 Dataset Information
+## Dataset Information
 
 - **Source**: Kaggle Thyroid Disease Dataset
 - **Total Records**: 9,172 patient records
@@ -43,7 +43,7 @@ This project implements a comprehensive thyroid disease classification system us
 - Symptoms: goitre, hyperthyroid query, psychological symptoms
 - Treatment history: any_treatment, medical_complexity_score
 
-## 🏗️ Project Structure
+## Project Structure
 
 ```
 capstone-project-pgdaiml/
@@ -82,7 +82,7 @@ capstone-project-pgdaiml/
 └── README.md                           # This file
 ```
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 - Python 3.9.7 or higher
@@ -128,7 +128,7 @@ Navigate through the notebooks in order:
 jupyter notebook notebook/
 ```
 
-## 🤖 Machine Learning Pipeline
+## Machine Learning Pipeline
 
 ### 1. Data Preprocessing
 - Missing value imputation
@@ -210,7 +210,7 @@ Comprehensive fairness analysis including:
 - Class imbalance analysis
 - Threshold optimization for fairness-accuracy trade-offs
 
-## 💡 Key Insights
+## Key Insights
 
 ### Most Important Features (SHAP Analysis)
 1. **TSH** (Thyroid Stimulating Hormone) - Primary indicator
@@ -226,7 +226,7 @@ Comprehensive fairness analysis including:
 - Explainability features support clinical decision-making
 - Bias auditing ensures equitable healthcare delivery
 
-## 🌐 Web Application Features
+## Web Application Features
 
 ### Interactive Prediction Interface
 - Interactive data-entry with validation
@@ -237,7 +237,7 @@ Comprehensive fairness analysis including:
 - Personalized health recommendations
 - Clinical context and interpretation
 
-## 📚 Technical Stack
+## Technical Stack
 
 - **ML/AI**: scikit-learn, XGBoost, SHAP, LIME
 - **Data Processing**: pandas, numpy
@@ -247,11 +247,11 @@ Comprehensive fairness analysis including:
 - **Model Persistence**: joblib
 - **Environment**: Python 3.9.7
 
-## 🤝 Contributing
+## Contributing
 
 This is an academic capstone project. For questions or suggestions, please reach out through the appropriate academic channels.
 
-## 📄 License
+## License
 
 This project is developed for educational purposes as part of the AIM PGDAIML program.
 
@@ -261,4 +261,4 @@ This project is developed for educational purposes as part of the AIM PGDAIML pr
 
 **Dataset Citation**: Thyroid Disease Dataset from Kaggle (UCI Machine Learning Repository)
 
-**Last Updated**: December 2025
+**Last Updated**: January 2026
