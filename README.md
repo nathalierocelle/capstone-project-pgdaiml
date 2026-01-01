@@ -1,4 +1,4 @@
-# Thyroid Disease Likelihood 
+# AI-Powered Thyroid Disease Detection System
 
 A hierarchical machine learning system for thyroid disease detection and multi-class classification, developed as part of the Post Graduate Diploma in AI and Machine Learning at Asian Institute of Management.
 
